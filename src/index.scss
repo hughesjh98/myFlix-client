@@ -1,5 +1,9 @@
-$color: steelblue;
 
-.my-flix {
-    color: $color;
+.poster-img {
+    width: 420px;
+    height: 480px;
+}
+
+:hover .movie-title, button {
+    cursor: pointer;
 }

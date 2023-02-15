@@ -1,5 +1,10 @@
-.my-flix {
-  color: #4682b4;
+.poster-img {
+  width: 420px;
+  height: 480px;
+}
+
+:hover .movie-title, button {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
