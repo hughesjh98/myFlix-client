@@ -1,1 +1,1 @@
-{"mappings":"AAEA;;;;;AAKA","sources":["src/index.scss"],"sourcesContent":["\n\n.poster-img {\n    width: 420px;\n    height: 480px;\n}\n\n:hover .movie-title, button {\n    cursor: pointer;\n}\n"],"names":[],"version":3,"file":"index.ce1d6491.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AACA;;;;;AAKA","sources":["src/index.scss"],"sourcesContent":["\n.poster-img {\n    width: 420px;\n    height: 480px;\n}\n\n:hover .movie-title, button {\n    cursor: pointer;\n}\n"],"names":[],"version":3,"file":"index.ce1d6491.css.map","sourceRoot":"/__parcel_source_root/"}
