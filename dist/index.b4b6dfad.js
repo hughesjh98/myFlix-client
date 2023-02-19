@@ -27153,39 +27153,35 @@ var _react = require("react");
 var _movieView = require("../movie-view/movie-view");
 var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
-const MainView = ()=>{
+function MainView() {
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
-    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-<<<<<<< Updated upstream
-=======
     (0, _react.useEffect)(()=>{
-        fetch(`https://movie-dash.herokuapp.com/movies`).then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.docs.map((doc)=>{
+        fetch("https://movie-dash.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.movies.map((movie)=>{
                 return {
-                    id: doc.key,
-                    title: doc.title
+                    Title: movie.Title
                 };
             });
             setMovies(moviesFromApi);
         });
     }, []);
->>>>>>> Stashed changes
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 12,
+        lineNumber: 28,
         columnNumber: 13
-    }, undefined);
+    }, this);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "this list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 18,
+        lineNumber: 33,
         columnNumber: 16
-    }, undefined);
+    }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                 movie: movie,
@@ -27194,16 +27190,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 24,
+                lineNumber: 39,
                 columnNumber: 17
-            }, undefined))
+            }, this))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 22,
+        lineNumber: 37,
         columnNumber: 9
-    }, undefined);
-};
-_s(MainView, "urBOhYoeEVGV+vV/D5aqQWyKCC0=");
+    }, this);
+}
+_s(MainView, "llzgrUkvR/+OoCNfiqlA1H2LLFI=");
 _c = MainView;
 exports.default = MainView;
 var _c;
