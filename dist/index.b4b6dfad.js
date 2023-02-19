@@ -2953,7 +2953,7 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("dd8f5e9a2fa2d889");
 
@@ -27155,46 +27155,32 @@ var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies] = (0, _react.useState)([
-        {
-            id: 1,
-            Title: "Kill Bill",
-            Image: "https://c8.alamy.com/comp/E5MG8G/kill-bill-vol-1-us-poster-art-uma-thurman-2003-miramax-courtesy-everett-E5MG8G.jpg",
-            Description: "Kill Bill is the story of one retired assassins revenge against a man who tried to kill her while she was pregnant years prior. After being in a coma for four years Beatrix Kiddo is hungry for revenge against the man and his team of assassins and will stop at nothing to Kill Bill.",
-            Genre: "action",
-            Director: "Quentin Tarantino"
-        },
-        {
-            id: 2,
-            Title: "Pulp Fiction",
-            Image: "https://wallpapercave.com/wp/wp7665395.jpg",
-            Description: "In the realm of underworld a series of incidents intertwines the lives of two Los Angeles mobsters a gangster wife a boxer and two small-time criminals.",
-            Genre: "action",
-            Director: "Quentin Tarantino"
-        },
-        {
-            id: 3,
-            Title: "Reservoir Dogs",
-            Image: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/512zetpdQjL.jpg",
-            Description: "Six criminals hired to steal diamonds do not know each others true identity. While attempting the heist the police ambushes them leading them to believe that one of them is an undercover officer.",
-            Genre: "action",
-            Director: "Quentin Tarantino"
-        }
-    ]);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://movie-dash.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.docs.map((doc)=>{
+                return {
+                    id: doc.key,
+                    title: doc.title
+                };
+            });
+            setMovies(moviesFromApi);
+        });
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 37,
+        lineNumber: 26,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "this list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 32,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27205,16 +27191,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 49,
+                lineNumber: 38,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 47,
+        lineNumber: 36,
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "nZj+XIq4GO8GbYwthlx8hwjigIQ=");
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
 _c = MainView;
 exports.default = MainView;
 var _c;
