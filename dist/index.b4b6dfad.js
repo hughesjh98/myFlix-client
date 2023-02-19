@@ -2953,7 +2953,7 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("dd8f5e9a2fa2d889");
 
