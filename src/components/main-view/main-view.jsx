@@ -7,6 +7,23 @@ export const MainView = () => {
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
+<<<<<<< Updated upstream
+=======
+    useEffect(() => {
+        fetch(`https://movie-dash.herokuapp.com/movies`)
+          .then((response) => response.json())
+          .then((data) => {
+            const moviesFromApi = data.docs.map((doc) => {
+              return {
+                id: doc.key,
+                title: doc.title,
+              };
+            });
+            setMovies(moviesFromApi);
+          });
+      }, []);
+
+>>>>>>> Stashed changes
     if (selectedMovie) {
         return (
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}

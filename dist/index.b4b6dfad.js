@@ -27157,6 +27157,20 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+<<<<<<< Updated upstream
+=======
+    (0, _react.useEffect)(()=>{
+        fetch(`https://movie-dash.herokuapp.com/movies`).then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.docs.map((doc)=>{
+                return {
+                    id: doc.key,
+                    title: doc.title
+                };
+            });
+            setMovies(moviesFromApi);
+        });
+    }, []);
+>>>>>>> Stashed changes
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
