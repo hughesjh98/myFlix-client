@@ -4,28 +4,63 @@ import { MovieCard } from "../movie-card/movie-card";
 
 export function MainView() {
     const [movies, setMovies] = useState([]);
-
     useEffect(() => {
         fetch("https://movie-dash.herokuapp.com/movies")
-            .then((response) => response.json())
+            .then((response) => response.json(movies))
             .then((data) => {
-                const moviesFromApi = data.movies.map((movie) => {
+                const moviesFromApi = data.map((movie) =>{
                     return {
-                        Title: movie.Title
+                        id:movie.key,
+                        Title:movie.Title,
+                        Description:movie.Description,
+                        Genre: movie.Genre,
+                        Directors:movie.Directors,
+                        ImagePath:movie.ImagePath
                     };
+                });
+                setMovies(moviesFromApi);
             });
-            setMovies(moviesFromApi)
-        });
     }, []);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
 
-
-
     if (selectedMovie) {
+// filters through the checkGenre function
+        let similarMovies = movies.filter(checkGenre);
+//function to check the genre and no duplicate the selected movie
+        function checkGenre(movie) {
+             if(movie.Genre.Name === selectedMovie.Genre.Name & movie.Title !== selectedMovie.Title){
+                return true;
+            };
+        };
         return (
+            <>
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+            <br/>
+            // reuse movie card to show similar movies at the bottom of a selected movie.
+            <h2>Similar Movies</h2>
+            {
+                similarMovies.length > 0  &&
+                <div>
+                    {
+                        similarMovies.map((movie) => (
+                            <MovieCard 
+                            key={movie.id}
+                            movie={movie}
+                            onMovieClick ={(newSelectedMovie) => {
+                                setSelectedMovie(newSelectedMovie);
+                            }}
+                            />
+                        )) 
+                        }
+                </div>
+            }
+
+            {
+                similarMovies === 0 && <div> no similar movies found.</div>
+            }
+            </>
         );
     }
 
@@ -41,7 +76,8 @@ export function MainView() {
                     movie={movie}
                     onMovieClick={(newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);
-                    } } />
+                    }} 
+                    />
             ))}
         </div>
     );
