@@ -27157,7 +27157,7 @@ function MainView() {
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        fetch("https://movie-dash.herokuapp.com/movies").then((response)=>response.json(movies)).then((data)=>{
+        fetch("https://movie-dash.herokuapp.com/movies").then((res)=>res.json(movies)).then((data)=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
                     id: movie.key,
@@ -27194,12 +27194,11 @@ function MainView() {
                     lineNumber: 40,
                     columnNumber: 13
                 }, this),
-                "// reuse movie card to show similar movies at the bottom of a selected movie.",
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: "Similar Movies"
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 42,
+                    lineNumber: 41,
                     columnNumber: 13
                 }, this),
                 similarMovies.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27210,20 +27209,20 @@ function MainView() {
                             }
                         }, movie.id, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 48,
+                            lineNumber: 47,
                             columnNumber: 29
                         }, this))
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 45,
+                    lineNumber: 44,
                     columnNumber: 17
                 }, this),
-                similarMovies === 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                similarMovies.length === 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: " no similar movies found."
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 61,
-                    columnNumber: 40
+                    lineNumber: 60,
+                    columnNumber: 47
                 }, this)
             ]
         }, void 0, true);
@@ -27232,7 +27231,7 @@ function MainView() {
         children: "this list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 68,
+        lineNumber: 67,
         columnNumber: 16
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27243,12 +27242,12 @@ function MainView() {
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 74,
+                lineNumber: 73,
                 columnNumber: 17
             }, this))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 72,
+        lineNumber: 71,
         columnNumber: 9
     }, this);
 }

@@ -6,7 +6,7 @@ export function MainView() {
     const [movies, setMovies] = useState([]);
     useEffect(() => {
         fetch("https://movie-dash.herokuapp.com/movies")
-            .then((response) => response.json(movies))
+            .then((res) => res.json(movies))
             .then((data) => {
                 const moviesFromApi = data.map((movie) =>{
                     return {
@@ -38,7 +38,6 @@ export function MainView() {
             <>
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
             <br/>
-            // reuse movie card to show similar movies at the bottom of a selected movie.
             <h2>Similar Movies</h2>
             {
                 similarMovies.length > 0  &&
@@ -58,7 +57,7 @@ export function MainView() {
             }
 
             {
-                similarMovies === 0 && <div> no similar movies found.</div>
+                similarMovies.length === 0 && <div> no similar movies found.</div>
             }
             </>
         );
