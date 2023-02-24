@@ -24,18 +24,8 @@ export function MainView() {
         headers: {Authorization: `Bearer ${token}`} 
         })
             .then((res) => res.json(movies))
-            .then((data) => {
-                const moviesFromApi = data.map((movie) =>{
-                    return {
-                        id:movie.key,
-                        Title:movie.Title,
-                        Description:movie.Description,
-                        Genre: movie.Genre,
-                        Directors:movie.Directors,
-                        ImagePath:movie.ImagePath
-                    };
-                });
-                setMovies(moviesFromApi);
+            .then((movies) => {
+                setMovies(movies);
             });
     }, [token]);
 
@@ -45,7 +35,6 @@ export function MainView() {
         onLoggedIn={ (user,token) => {
             setUser(user);
             setToken(token);
-
             }}
         />
         );
