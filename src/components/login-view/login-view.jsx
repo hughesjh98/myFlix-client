@@ -1,7 +1,11 @@
 import React from "react";
+import { useState } from "react";
 
-const LoginView = () =>{
-     const handleEvent = (event) => {
+export const LoginView = () =>{
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    
+     const handleSubmit = (event) => {
         event.preventDefault();
 
         const data = {
@@ -22,11 +26,19 @@ return (
     <form onSubmit={handleSubmit}>
         <label>
              username:
-             <input type="text"/>
+             <input 
+             type="text"
+             value={username}
+             onChange={(e) => setUsername(e.target.value)}
+             />
               </label>
         <label>
             password:
-             <input type="password"/>
+             <input 
+             type="password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+             />
              </label>
         <button type="submit"> submit</button>
     </form>

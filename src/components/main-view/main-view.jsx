@@ -10,6 +10,7 @@ export function MainView() {
     const [user,setUser] = useState(null);
 
 
+
     useEffect(() => {
         fetch("https://movie-dash.herokuapp.com/movies")
             .then((res) => res.json(movies))
