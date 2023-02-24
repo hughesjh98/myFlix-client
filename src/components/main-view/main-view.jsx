@@ -4,11 +4,13 @@ import { MovieCard } from "../movie-card/movie-card";
 import {LoginView} from "../login-view/login-view";
 
 export function MainView() {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user,setUser] = useState(null);
-    const [token, setToken] = useState(null);
+    const [user,setUser] = useState(storedUser? storedUser:null);
+    const [token, setToken] = useState(storedToken? storedToken:null);
 
 
 
@@ -105,7 +107,7 @@ export function MainView() {
                     />
             ))}
 
-<button onClick = {() =>{ setUser(null); setToken(null) }}> logout</button>
+<button onClick = {() =>{ setUser(null); setToken(null); localStorage.clear(); }}> logout</button>
         </div>
     );
 }
