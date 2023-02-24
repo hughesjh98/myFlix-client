@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
+import {LoginView} from "../login-view/login-view";
 
 export function MainView() {
+
     const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [user,setUser] = useState(null);
+
+
     useEffect(() => {
         fetch("https://movie-dash.herokuapp.com/movies")
             .then((res) => res.json(movies))
@@ -22,7 +28,10 @@ export function MainView() {
             });
     }, []);
 
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    if(!user){
+        return < LoginView/>
+    }
+
 
 
     if (selectedMovie) {
@@ -38,7 +47,7 @@ export function MainView() {
             <>
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
             <br/>
-            <h2>Similar Movies</h2>
+            <h2>You may also like</h2>
             {
                 similarMovies.length > 0  &&
                 <div>
