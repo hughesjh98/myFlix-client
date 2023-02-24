@@ -85,10 +85,6 @@ export function MainView() {
             {
                 similarMovies.length === 0 && <div> no similar movies found.</div>
             }
-
-            {
-                <button onClick = {() =>{ setUser(null); setToken(null) }}> logout</button>
-            }
             </>
         );
     }
@@ -108,6 +104,8 @@ export function MainView() {
                     }} 
                     />
             ))}
+
+<button onClick = {() =>{ setUser(null); setToken(null) }}> logout</button>
         </div>
     );
 }
