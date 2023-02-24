@@ -8,11 +8,19 @@ export function MainView() {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user,setUser] = useState(null);
+    const [token, setToken] = useState(null);
 
 
 
     useEffect(() => {
-        fetch("https://movie-dash.herokuapp.com/movies")
+
+        if(!token) {
+            return;
+        }
+
+        fetch("https://movie-dash.herokuapp.com/movies", {
+        headers: {Authorization: `Bearer ${token}`} 
+        })
             .then((res) => res.json(movies))
             .then((data) => {
                 const moviesFromApi = data.map((movie) =>{
@@ -27,10 +35,18 @@ export function MainView() {
                 });
                 setMovies(moviesFromApi);
             });
-    }, []);
+    }, [token]);
 
     if(!user){
-        return < LoginView/>
+        return (
+        < LoginView 
+        onLoggedIn={ (user,token) => {
+            setUser(user);
+            setToken(token);
+
+            }}
+        />
+        );
     }
 
 
@@ -68,6 +84,10 @@ export function MainView() {
 
             {
                 similarMovies.length === 0 && <div> no similar movies found.</div>
+            }
+
+            {
+                <button onClick = {() =>{ setUser(null); setToken(null) }}> logout</button>
             }
             </>
         );
