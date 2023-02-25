@@ -45,8 +45,6 @@ export function MainView() {
         );
     }
 
-
-
     if (selectedMovie) {
 // filters through the checkGenre function
         let similarMovies = movies.filter(checkGenre);
