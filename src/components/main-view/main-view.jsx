@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
+<<<<<<< Updated upstream
+=======
+import {LoginView} from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
+
+export function MainView() {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+>>>>>>> Stashed changes
 
 export const MainView = () => {
     const [movies, setMovies] = useState([]);
@@ -17,9 +26,30 @@ export const MainView = () => {
                 title: doc.title,
               };
             });
+<<<<<<< Updated upstream
             setMovies(moviesFromApi);
           });
       }, []);
+=======
+    }, [token]);
+
+    if(!user){
+        return (
+            <>
+        < LoginView 
+        onLoggedIn={ (user,token) => {
+            setUser(user);
+            setToken(token);
+            }}
+        />
+        or
+        <SignupView/>
+        </>
+        );
+    }
+
+
+>>>>>>> Stashed changes
 
     if (selectedMovie) {
         return (
@@ -33,6 +63,7 @@ export const MainView = () => {
     }
 
     return (
+
         <div>
             {movies.map((movie) => (
                 <MovieCard
