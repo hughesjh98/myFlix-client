@@ -3,6 +3,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
 import {LoginView} from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import Row from "react-bootstrap/Row"
 
 export function MainView() {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -105,6 +106,4 @@ export function MainView() {
 }
 
 export default MainView
-
-
 
