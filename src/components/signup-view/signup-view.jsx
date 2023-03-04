@@ -1,4 +1,4 @@
-import{ useState } from "react";
+import { useState } from "react";
 import React from "react"
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,39 +13,39 @@ export const SignupView = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     const data = {
-        Name: name,
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-      };
-  
-      fetch("https://movie-dash.herokuapp.com/users", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then((response) => {
-        if (response.ok) {
-          alert("Signup successful");
-          window.location.reload();
-        } else {
-          alert("Signup failed");
-        }
-      });
+      Name: name,
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    };
+
+    fetch("https://movie-dash.herokuapp.com/users", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Signup successful");
+        window.location.reload();
+      } else {
+        alert("Signup failed");
+      }
+    });
   };
   return (
-    
+
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formName">
         <Form.Label>Name:</Form.Label>
         <Form.Control
-        type="text"
-        value={name}
-        onChange={(e) =>setName(e.target.value)}
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
       </Form.Group>
 
@@ -81,7 +81,7 @@ export const SignupView = () => {
       </Form.Group>
 
       <Form.Group controlId="forBirthday">
-       <Form.Label>Birthday:</Form.Label> 
+        <Form.Label>Birthday:</Form.Label>
         <Form.Control
           type="date"
           value={birthday}
@@ -89,8 +89,9 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-        <br/>
+      <br />
       <Button variant="primary" type="submit">Submit</Button>
     </Form>
   );
 };
+

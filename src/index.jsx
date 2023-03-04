@@ -1,15 +1,15 @@
 import { createRoot } from 'react-dom/client';
-import  MainView  from './components/main-view/main-view';
+import MainView from './components/main-view/main-view';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.scss';
 import Container from "react-bootstrap/Container"
 
 const MyFlixApplication = () => {
 
-    return( 
+    return (
         <Container >
             < MainView />
-    </Container>
+        </Container>
     )
 };
 
