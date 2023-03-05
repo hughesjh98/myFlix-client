@@ -5,10 +5,25 @@ import { useParams } from "react-router";
 import "./movie-view.scss";
 
 export const MovieView = ({ movies }) => {
-    const { Title } = useParams();
+    const { movieId } = useParams();
+    const movie = movies.find((m) => m._id === movieId);
 
-    const movie = movies.find((movie) => movie.Title === Title);
-    return (
+
+   
+
+
+    const addFavoriteMovie = (event) => {
+        event.preventDefault()
+
+
+    }
+
+    const deleteFavoriteMovie = (event) => {
+        event.preventDefault()
+    }
+
+
+    return(
         <Card className="h-100">
             <Card.Img src={movie.ImagePath} alt="poster" />
             <Card.Body>
