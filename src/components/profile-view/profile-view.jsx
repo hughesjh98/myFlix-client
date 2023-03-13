@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { UpdateProfile } from "./update-profile";
 import { UserInfo } from "./user-info";
+import { MovieCard } from "../movie-card/movie-card";
 
-// import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ user,  }) => {
+
+export const ProfileView = ({ user,movies }) => {
     const storedToken = localStorage.getItem("token");
     const storedUser = JSON.parse(localStorage.getItem("user"));
+    let favMovies = movies.filter(m => user.FavoriteMovies.includes(m._id))
 
     return (
         <Container>
@@ -16,7 +17,12 @@ export const ProfileView = ({ user,  }) => {
                 < UpdateProfile storedToken={storedToken} storedUser={storedUser} />
             </Row>
             <Row>
-                {/* <FavoriteMovies storedUser={storedUser} movies={movies}/> */}
+            <h2 className="my-3 my-md-5">Favorite Movies </h2>
+                {favMovies.map((movie) => (
+                    <Col md={6} lg={4} key={movie._id} className="mb-3">
+                        <MovieCard movies={movie} />
+                    </Col>
+                ))}
             </Row>
         </Container>
     )

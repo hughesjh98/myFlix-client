@@ -15,8 +15,6 @@ export function MainView() {
     const [movies, setMovies] = useState([]);
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
-    const [FavoriteMovies, setFavoriteMovies] = useState([]);
-
 
     useEffect(() => {
 
@@ -30,7 +28,6 @@ export function MainView() {
             .then((res) => res.json())
             .then((movies) => {
                 setMovies(movies);
-                localStorage.setItem("movies", JSON.stringify(movies))
             });
     }, [token]);
 
@@ -69,7 +66,7 @@ export function MainView() {
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
-                                        <h1>login</h1>
+                                        <h1>Login</h1>
                                         <LoginView
                                             onLoggedIn={(user, token) => {
                                                 setUser(user);
