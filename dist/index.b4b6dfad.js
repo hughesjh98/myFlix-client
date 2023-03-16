@@ -27510,7 +27510,7 @@ const MovieView = ({ movies  })=>{
         columnNumber: 9
     }, undefined);
 };
-_s(MovieView, "igJg5uLweM1wZcHx4d5yiOiCIbI=", false, function() {
+_s(MovieView, "kTIm98f+bJ7sJa4z4bUbM+1vyrI=", false, function() {
     return [
         (0, _reactRouter.useParams)
     ];
@@ -46555,7 +46555,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl"}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -46944,7 +46944,7 @@ const ProfileView = ({ user , movies  })=>{
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
                         lineNumber: 20,
-                        columnNumber: 13
+                        columnNumber: 17
                     }, undefined),
                     favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                             md: 6,
@@ -46984,7 +46984,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","./update-profile":"kDlg2","./user-info":"66eot","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl","../movie-card/movie-card":"bwuIu"}],"kDlg2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","./update-profile":"kDlg2","./user-info":"66eot","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"h5jqW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7YfXl"}],"kDlg2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$844e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

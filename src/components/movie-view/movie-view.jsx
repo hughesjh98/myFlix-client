@@ -11,7 +11,7 @@ export const MovieView = ({ movies }) => {
     const movie = movies.find((m) => m._id === movieId);
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
-    const [favoriteMovies, setFavoriteMovies] = useState(user.FavoriteMovies ? user.FavoriteMovies: []);
+    const [favoriteMovies, setFavoriteMovies] = useState(user.FavoriteMovies ? user.FavoriteMovies : []);
     const [isFavorite, setIsFavorite] = useState(false);
 
 
@@ -26,7 +26,7 @@ export const MovieView = ({ movies }) => {
         }).then((response) => response.json())
             .then((data) => {
                 setFavoriteMovies(data.FavoriteMovies);
-                
+
                 localStorage.setItem("user", JSON.stringify(data))
                 alert("Added to Favorite movies!")
                 window.location.reload();
@@ -46,7 +46,7 @@ export const MovieView = ({ movies }) => {
         }).then((response) => response.json())
             .then((data) => {
                 setFavoriteMovies(favoriteMovies.filter((favM) => favM !== movie._id));
-                
+
                 localStorage.setItem("user", JSON.stringify(data))
                 alert("deleted to Favorite movies!")
                 window.location.reload();
@@ -78,7 +78,7 @@ export const MovieView = ({ movies }) => {
                     <Button variant="light"> Back </Button>
                     {!isFavorite &&
                         <Button onClick={addFavoriteMovie} variant="success" >
-                            add to favorite 
+                            add to favorite
                         </Button>}
                     {isFavorite &&
                         <Button onClick={deleteFavoriteMovie} variant="danger" >
