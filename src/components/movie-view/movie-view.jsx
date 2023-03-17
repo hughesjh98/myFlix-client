@@ -1,5 +1,4 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button, Col, Row, Container, Figure } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
@@ -67,28 +66,36 @@ export const MovieView = ({ movies }) => {
 
 
     return (
-        <Card className="h-100">
-            <Card.Img src={movie.ImagePath} alt="poster" />
-            <Card.Body>
-                <Card.Text> Title: {movie.Title}</Card.Text>
-                <Card.Text>Description: {movie.Description}</Card.Text>
-                <Card.Text> Genre: {movie.Genre.Name}</Card.Text>
-                <Card.Text> Director: {movie.Directors.Name}</Card.Text>
-                <Link to={`/`}>
-                    <Button variant="light"> Back </Button>
-                    {!isFavorite &&
-                        <Button onClick={addFavoriteMovie} variant="success" >
-                            add to favorite
-                        </Button>}
-                    {isFavorite &&
-                        <Button onClick={deleteFavoriteMovie} variant="danger" >
-                            Remove from Favorite
-                        </Button>
-                    }
-                </Link>
-            </Card.Body>
-        </Card>
-
-
+        <Container >
+            <Row>
+                <Col>
+                    <Figure>
+                        <Figure.Image src={movie.ImagePath} alt="poster" width={350} />
+                    </Figure>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Text> Title: {movie.Title}</Card.Text>
+                            <Card.Text>Description: {movie.Description}</Card.Text>
+                            <Card.Text> Genre: {movie.Genre.Name}</Card.Text>
+                            <Card.Text> Director: {movie.Directors.Name}</Card.Text>
+                            <Link to={`/`}>
+                                <Button variant="light"> Back </Button>
+                                {!isFavorite &&
+                                    <Button onClick={addFavoriteMovie} variant="success" >
+                                        add to favorite
+                                    </Button>}
+                                {isFavorite &&
+                                    <Button onClick={deleteFavoriteMovie} variant="danger" >
+                                        Remove from Favorite
+                                    </Button>
+                                }
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     )
 }

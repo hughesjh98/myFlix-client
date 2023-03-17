@@ -103,10 +103,7 @@ export function MainView() {
                                     <Col>loading list...</Col>
 
                                 ) : (
-                                    <Col md={8}>
                                         <MovieView movies={movies} />
-                                    </Col>
-
                                 )}
                             </>
                         }
