@@ -27295,8 +27295,7 @@ function MainView() {
                                     children: " loading list... "
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                            className: "col-sm-12 col-sm-6 col-md-4 col-lg-3 g-4",
-                                            md: 3,
+                                            md: 4,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                 movies: movie
                                             }, void 0, false, void 0, void 0)

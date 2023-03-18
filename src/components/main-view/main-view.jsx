@@ -4,7 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { Row, Col, Button } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { ProfileView } from "../profile-view/profile-view";
 
@@ -103,7 +103,7 @@ export function MainView() {
                                     <Col>loading list...</Col>
 
                                 ) : (
-                                        <MovieView movies={movies} />
+                                    <MovieView movies={movies} />
                                 )}
                             </>
                         }
@@ -123,7 +123,7 @@ export function MainView() {
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
-                                            <Col key={movies._id} className="col-sm-12 col-sm-6 col-md-4 col-lg-3 g-4" md={3} >
+                                            <Col key={movies._id} md={4} >
                                                 <MovieCard movies={movie} />
                                             </Col>
                                         ))}
