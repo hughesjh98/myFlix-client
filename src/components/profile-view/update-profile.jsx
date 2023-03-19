@@ -70,7 +70,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
           <h4>update info</h4>
           <Form onSubmit={handleUpdate}>
             <Form.Group controlId="formName">
-              <Form.Label>Name:</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
                 onChange={(e) => setName(e.target.value)}
@@ -78,7 +78,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
             </Form.Group>
 
             <Form.Group controlId="forUsername">
-              <Form.Label>Username:</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 onChange={(e) => setUsername(e.target.value)}
@@ -88,7 +88,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
             </Form.Group>
 
             <Form.Group controlId="forPassword">
-              <Form.Label> Password: </Form.Label>
+              <Form.Label> Password </Form.Label>
               <Form.Control
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -97,7 +97,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
             </Form.Group>
 
             <Form.Group controlId="forEmail">
-              <Form.Label>Email:</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -106,7 +106,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
             </Form.Group>
 
             <Form.Group controlId="forBirthday">
-              <Form.Label>Birthday:</Form.Label>
+              <Form.Label>Birthday</Form.Label>
               <Form.Control
                 type="date"
                 onChange={(e) => setBirthday(e.target.value)}
@@ -115,7 +115,7 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
             </Form.Group>
 
             <Button variant="primary" type="submit">Submit</Button>
-            <Deregister/>
+            <Deregister />
           </Form>
         </Card.Body>
       </Card>

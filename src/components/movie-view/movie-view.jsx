@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import "./movie-view.scss";
+import { useSelector } from "react-redux";
 
 
-export const MovieView = ({ movies }) => {
+export const MovieView = () => {
     const { movieId } = useParams();
+    const movies = useSelector((state) => state.movies.list)
     const movie = movies.find((m) => m._id === movieId);
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
     const [favoriteMovies, setFavoriteMovies] = useState(user.FavoriteMovies ? user.FavoriteMovies : []);
     const [isFavorite, setIsFavorite] = useState(false);
+
 
 
     const addFavoriteMovie = (event) => {
@@ -27,7 +30,7 @@ export const MovieView = ({ movies }) => {
                 setFavoriteMovies(data.FavoriteMovies);
 
                 localStorage.setItem("user", JSON.stringify(data))
-                alert("Added to Favorite movies!")
+                alert("Added to Favorite movies")
                 window.location.reload();
             }).catch((error) => {
                 console.log("error", error);
@@ -47,7 +50,7 @@ export const MovieView = ({ movies }) => {
                 setFavoriteMovies(favoriteMovies.filter((favM) => favM !== movie._id));
 
                 localStorage.setItem("user", JSON.stringify(data))
-                alert("deleted to Favorite movies!")
+                alert("deleted from Favorite movies")
                 window.location.reload();
             }).catch((error) => {
                 console.log("error", error);

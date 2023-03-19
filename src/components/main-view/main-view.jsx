@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { MovieView } from "../movie-view/movie-view";
-import { MovieCard } from "../movie-card/movie-card";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { Row, Col } from "react-bootstrap"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { ProfileView } from "../profile-view/profile-view";
+import { useSelector, useDispatch } from "react-redux";
+import { setMovies } from "../../redux/reducers/movies";
+import { MovieList } from "../movies-list/movies-list";
+
 
 
 export function MainView() {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const [movies, setMovies] = useState([]);
-    const [user, setUser] = useState(storedUser ? storedUser : null);
-    const [token, setToken] = useState(storedToken ? storedToken : null);
+    const movies = useSelector((state) => state.movies.list);
+    const user = useSelector((state) => state.user.user || JSON.parse(localStorage.getItem('user')));
+    const token = useSelector((state) => state.token.token || localStorage.getItem('token'));
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
@@ -27,20 +30,14 @@ export function MainView() {
         })
             .then((res) => res.json())
             .then((movies) => {
-                setMovies(movies);
+                dispatch(setMovies(movies));
             });
     }, [token]);
 
     return (
         <BrowserRouter>
-            <NavigationBar
-                user={user}
-                onLoggedOut={() => {
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                }}
-            />
+            <NavigationBar />
+
             <Row className="justify-content-md-center " >
                 <Routes>
                     <Route
@@ -67,12 +64,7 @@ export function MainView() {
                                 ) : (
                                     <Col md={5}>
                                         <h1>Login</h1>
-                                        <LoginView
-                                            onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                setToken(token);
-                                            }}
-                                        />
+                                        <LoginView />
                                     </Col>
                                 )}
                             </>
@@ -86,7 +78,7 @@ export function MainView() {
                                     <Navigate to="/login" replace />
                                 ) : (
                                     <Col>
-                                        <ProfileView user={user} movies={movies} />
+                                        <ProfileView user={user} movies={movies} token={token} />
                                     </Col>
                                 )}
                             </>
@@ -103,7 +95,7 @@ export function MainView() {
                                     <Col>loading list...</Col>
 
                                 ) : (
-                                    <MovieView movies={movies} />
+                                    <MovieView />
                                 )}
                             </>
                         }
@@ -113,22 +105,9 @@ export function MainView() {
                         path="/"
                         element={
                             <>
-                                {!user ? (
-
-                                    <Navigate to="/login" replace />
-
-                                ) : movies.length === 0 ? (
-                                    <Col> loading list... </Col>
-
-                                ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col key={movies._id} md={4} >
-                                                <MovieCard movies={movie} />
-                                            </Col>
-                                        ))}
-                                    </>
-                                )}
+                                {
+                                    !user ? <Navigate to="/login" replace /> : <MovieList />
+                                }
                             </>
                         }
                     />
